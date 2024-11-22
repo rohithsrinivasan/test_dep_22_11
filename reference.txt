@@ -1,0 +1,39 @@
+    grouped_indices = df.groupby('Priority').indices
+    total_rows = len(df)
+    left = []
+    right = []
+    left_limit = total_rows // 2 
+
+    last_side = 'Left'  
+
+    for group in grouped_indices.values():
+        if last_side == 'Left' and len(left) + len(group) <= left_limit:
+            left.extend(group)
+
+#############################################
+
+
+        elif isinstance(grouping_changed, dict):
+            for key, df in grouping_changed.items():
+                st.subheader(f"Smart_Table: {key}")  # Display the key as a subheader
+                st.dataframe(df) 
+
+            timestamp = datetime.datetime.now().strftime("%d-%m_%H:%M")
+            filename = f"{part_number}_SmartPinTable_{timestamp}.csv"
+
+            st.download_button(
+                label="Download All Smart Tables as differrnt sheets in one excel",
+                data=grouping_changed.to_csv(index=False),
+                file_name=filename,
+                mime='text/csv',
+                type="primary"
+            )            
+
+
+for table_name, df_copy in df_copy_dict.items():
+    # Process the DataFrame (assuming process_dataframe returns a DataFrame)
+    df_copy_dict[table_name] = process_dataframe(df_copy)
+    
+    # Drop 'Grouping' and 'Priority' columns, and rename 'Changed_grouping' to 'New_grouping'
+    df_copy_dict[table_name] = df_copy_dict[table_name].drop(['Grouping', 'Priority'], axis=1)
+    df_copy_dict[table_name] = df_copy_dict[table_name].rename(columns={'Changed_grouping': 'New_grouping'})
