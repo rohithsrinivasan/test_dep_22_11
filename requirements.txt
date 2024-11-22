@@ -6,3 +6,4 @@ streamlit==1.38.0
 streamlit_pdf_viewer
 python-dotenv
 google-generativeai
+openpyxl
