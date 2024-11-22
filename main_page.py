@@ -20,6 +20,8 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+st.warning(f"Bad requested resource. Try refreshing")
+
 f.renesas_logo()
 f.header_intro() 
 f.header_intro_2()
