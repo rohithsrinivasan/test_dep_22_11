@@ -60,6 +60,10 @@ if st.button("Customize ⚙️"):
 non_standard = st.toggle("For Non Standard Datasheet")
 
 if non_standard:
+
+    input_buffer = st.file_uploader("Upload a file", type=("PDF"),Disabled= True)
+    input_part_number = st.text_input("Enter a valid Part Number", Disabled= True)
+
     st.write("Upload pin table in csv format")    
     uploaded_file = st.file_uploader("Upload a CSV  file", type=["csv"])
 
