@@ -69,7 +69,7 @@ def part_number_details(input_part_number,input_buffer):
             st.text(f" User entered Part Number is not matching, please select one from the below")
             part_number, number_of_pins, package_type, package_code = part_number_details_functions.create_selectbox_for_user_to_select(merged_df)
 
-        #st.text(f"Part Number : {part_number}, Number of Pins: {number_of_pins}, Package: {package_type}, Package Code: {package_code}")
+        st.subheader(f"Part Number : {part_number}, Number of Pins: {number_of_pins}, Package: {package_type}, Package Code: {package_code}",divider=True)
 
     return part_number, number_of_pins, package_type, package_code  
 
