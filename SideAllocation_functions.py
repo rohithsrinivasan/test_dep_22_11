@@ -54,6 +54,9 @@ def priority_order(row, df):
         'Power_Negetive_Regulator_Capacitor': "Y_Power_Negetive",
         'Power_Negetive': "Z_Power_Negetive",
         'Analog_Power_Negetive': "Z_Analog_Power_Negetive",
+        "Power_Low_Positive": "A_Power_Low_Positive",
+        "Power_High_Positive": "A_Power_High_Positive",
+        "Power_Battery_Management": "A_Power_Battery_Management",
         'System': "B_System",
         'Reset': "BR_Reset",
         'No_Connect': "X_No_Connect",
@@ -328,3 +331,12 @@ def Dual_in_line_as_per_Renesas(df):
     final_df = final_df.rename(columns={'Changed_grouping': 'New_grouping'})
 
     return final_df
+
+def final_filter(df):
+    # Remove leading/trailing whitespace and replace multiple spaces with single space
+    df = df.applymap(lambda x: str(x).strip().replace('  ', ' '))
+
+    # Remove newlines and convert to single word
+    df = df.applymap(lambda x: x.replace('\n', ' ').replace(' ', '_'))
+
+    return df

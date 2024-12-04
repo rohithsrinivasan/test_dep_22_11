@@ -32,7 +32,8 @@ def group_other_io_pins(row):
         "I2C_Pins": ['SDA', 'SCL', r'\SDA', r'\SCL', 'SDO', r'\SDO'],
         "GPIO_Pins": ['GPIO'],
         "Main_Clock": ['XOUT', 'XIN'],
-        "ADC_Pins": ['ADC']
+        "ADC_Pins": ['ADC'],
+        "Analog_Input_Pins": ['AIN',"Ain"]
     }
 
     if row['Electrical Type'] == 'I/O':
@@ -62,11 +63,14 @@ def group_output_pins(row):
 
 def group_power_pins(row):
     pin_groups = {
-        "Power_Positive": ['VDD','SMVDD', 'EVD', 'CVD', 'VCC','VCL','PLLVCC','A0VCC','A1VCC','A2VCC','RVCC','SYSVCC','EVCC','BVCC','CVCC','DVCC','ISOVCC','ISOVCL','AWOVC'],
-        "Power_Negetive": ['VSS','SMVSS', 'EVS', 'CVS', 'Epa', 'EPA', 'GND','PLLVSS','A0VSS','A1VSS','A2VSS','RVSS','AVSS','BVSS','CVSS','DVSS','ISOVSS','AWOVS'],
-        "Power_Negetive_Regulator_Capacitor": ['REG'],
-        "Power_Ref_Positive": ['REFH', 'AVREF', 'A1VREF', 'A2VREF', 'VREF', 'A0VREF'],
+        "Power_Positive": ['VDD','SMVDD', 'EVD', 'CVD', 'VCC','PLLVCC','A0VCC','A1VCC','A2VCC','RVCC','SYSVCC','EVCC','BVCC','CVCC','DVCC','ISOVCC','AWOVC'],
+        "Power_Negetive": ['VSS','SMVSS', 'EVS', 'CVS', 'Epa', 'EPA', 'GND','PLLVSS','A0VSS','A1VSS','A2VSS','RVSS','AVSS','BVSS','CVSS','DVSS','ISOVSS','AWOVS','VCL','ISOVCL'],
+        "Power_Negetive_Regulator_Capacitor": ['REG','AREGC'],
+        "Power_Ref_Positive": ['REF', 'AVREF', 'A1VREF', 'A2VREF', 'VREF', 'A0VREF'],
         "Power_Ref_Negetive": ['REFL'],
+        "Power_Low_Positive": ['VL','Vl'],
+        "Power_High_Positive": ['VH','Vh'],
+        "Power_Battery_Management": ["VRTC", "VBAT", "AVRT", "AVCM"],
         "Analog_Power_Positive": ['AVCC', 'AVDD'],
         "Analog_Power_Negetive": ['AVS', 'AWOVSS'],
         "Audio_data_lines": ['AUD','\AUD'],
@@ -103,6 +107,7 @@ def group_input_pins(row):
         "Mode": ["MD", "MO", "MODE","FLMODE"],
         "Interrupt": ["NMI"],
         "P+ Analog": ["Vr"],
+        "Power_Ref_Positive" : ["REF"],
         "Main_Clock": ["X1", "X2", "XI"],
         "External_Clock_Capacitor": ["XC"],
         "Chip_Select": ["CS", "nCS"],

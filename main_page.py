@@ -184,6 +184,7 @@ if 'grouped_pin_table' in st.session_state:
         #st.text(f"DIL template as per Renesas")
 
         if isinstance(grouping_changed, pd.DataFrame):
+            grouping_changed = SideAllocation_functions.final_filter(grouping_changed) 
             st.subheader(f"Smart_Table: ")
             st.dataframe(grouping_changed)  # Display single DataFrame
             #st.success("Side Alloction Done!")
@@ -209,7 +210,8 @@ if 'grouped_pin_table' in st.session_state:
         # Assuming `grouping_changed` is a dictionary of DataFrames
         elif isinstance(grouping_changed, dict):
             for key, df in grouping_changed.items():
-           # for key, df in {k: v for k, v in grouping_changed.items() if not v.empty}.items():    
+           # for key, df in {k: v for k, v in grouping_changed.items() if not v.empty}.items(): 
+                df = SideAllocation_functions.final_filter(df)   
                 st.subheader(f"Smart_Table: {key}")  # Display the key as a subheader
                 st.dataframe(df)
 
